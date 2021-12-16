@@ -74,6 +74,9 @@ class UserServiceImplTest extends BaseTest {
         UserResponseDto createdUserResponse = userService.create(requestDto);
 
         // assertions
+
+        // assertEquals(createdUserResponse, responseDto);
+
         assertEquals(createdUserResponse.getName(), responseDto.getName());
         assertEquals(createdUserResponse.getSurname(), responseDto.getSurname());
         assertEquals(createdUserResponse.getEmail(), responseDto.getEmail());

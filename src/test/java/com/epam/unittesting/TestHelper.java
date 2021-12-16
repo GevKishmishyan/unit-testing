@@ -4,13 +4,10 @@ import com.epam.unittesting.dto.request.UserRequestDto;
 import com.epam.unittesting.dto.response.UserResponseDto;
 import com.epam.unittesting.model.User;
 
-import static com.fasterxml.jackson.databind.util.ClassUtil.name;
-
 /**
  * Helper class for test instance(s)
  */
 public class TestHelper {
-    protected final static String NON_EXIST_MID_ID = "0000000000";
 
     /**
      * Generated UserRequestDto
@@ -45,7 +42,7 @@ public class TestHelper {
                 .id(1L)
                 .name("test_name")
                 .surname("test_surname")
-                .email("test_email1@gmail.com")
+                .email("test_email@gmail.com")
                 .password("test_password")
                 .build();
     }
