@@ -95,6 +95,10 @@ class UserServiceImplTest extends BaseTest {
         when(userRepository.findUserByEmail(requestDto.getEmail())).thenReturn(Optional.of(user));
 
         // test method
+        String environment = System.getenv("environment");
+        if ("PROD".equals(environment)) {
+            Assertions.assertThrows(EntityNotFoundException.class, () -> userService.create(requestDto));
+        }
         Assertions.assertThrows(EntityAlreadyExistException.class, () -> userService.create(requestDto));
     }
 
