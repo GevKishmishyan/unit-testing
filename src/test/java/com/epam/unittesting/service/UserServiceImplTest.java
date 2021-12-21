@@ -127,10 +127,15 @@ class UserServiceImplTest extends BaseTest {
     @Test
     void get_throws_entity_not_found_exception() {
         // mock your methods
-        when(userRepository.findById(any())).thenReturn(Optional.empty());
+        String env = System.getenv("env");
+        if ("PROD".equals(env)) {
+            Assertions.fail();
+        } else {
+            when(userRepository.findById(any())).thenReturn(Optional.empty());
 
-        // test method
-        Assertions.assertThrows(EntityNotFoundException.class, () -> userService.get(10L));
+            // test method
+            Assertions.assertThrows(EntityNotFoundException.class, () -> userService.get(10L));
+        }
     }
 
 }
