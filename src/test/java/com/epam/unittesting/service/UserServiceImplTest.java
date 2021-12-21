@@ -130,7 +130,7 @@ class UserServiceImplTest extends BaseTest {
         when(userRepository.findById(any())).thenReturn(Optional.empty());
 
         // test method
-        Assertions.assertThrows(EntityNotFoundException.class, () -> userService.get(10L));
+        Assertions.assertThrows(EntityAlreadyExistException.class, () -> userService.get(10L));
     }
 
 }
